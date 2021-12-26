@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1>{{ nomeApp }}</h1>
-    <ul>
-      <li v-for="foto in fotos" :key="foto.titulo">
+  <div class="corpo">
+    <h1 class="centralizado">{{ nomeApp }}</h1>
+    <ul class="lista-fotos">
+      <li class="lista-fotos-item" v-for="foto in fotos" :key="foto.titulo">
         <img :src="foto.url" :alt="foto.titulo" :key="foto.titulo">
       </li>
     </ul>
@@ -26,4 +26,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  .corpo{
+    font-family: Helvetica;
+    width:96%;
+    margin:0 auto;
+  }
+
+  .centralizado{
+    text-align: center;
+  }
+
+  .lista-fotos{
+    list-style: none;
+  }
+
+  .lista-fotos .lista-fotos-item{
+    display: inline-block;
+  }
+</style>
