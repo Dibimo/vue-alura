@@ -12,19 +12,16 @@
 <script>
 export default {
   data(){
-    return{
+    return {
       nomeApp: "Alurapic",
-      fotos:[
-        {
-          url: "https://www.petlove.com.br/dicas/wp-content/uploads/2021/08/Gato-filhote-7.jpg",
-          titulo:"gatinho fofo"
-        },
-        {
-          url: "https://i.pinimg.com/236x/45/24/de/4524de2715890053f73b997f80688118.jpg",
-          titulo:"outro gatinho fofo"
-        }
-      ]
+      fotos:[]
     }
+  },
+  
+  created(){
+    this.$http.get("http://localhost:3000/v1/fotos")
+      .then(res => res.json()) //resposta que veio do servidor converdita para json
+      .then(fotos => this.fotos = fotos); //informação de fato que será utilizada pela aplicação
   }
 };
 </script>
